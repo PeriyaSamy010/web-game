@@ -1,0 +1,127 @@
+/* === Body with animated gradient background === */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bgShift 12s ease infinite;
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1c1c1c);
+    background-size: 400% 400%;
+}
+
+@keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* === Glassmorphic Card === */
+center {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 35px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0,255,255,0.3), inset 0 0 15px rgba(255,255,255,0.05);
+    width: 320px;
+    animation: fadeIn 1.2s ease-in-out;
+    text-align: center;
+}
+
+/* === Title === */
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+}
+
+/* === Text === */
+p {
+    font-size: 16px;
+    color: #eee;
+    margin-bottom: 15px;
+}
+
+/* === Input Box === */
+input[type="number"] {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: cyan;
+    box-shadow: 0 0 15px cyan;
+}
+
+/* === Button with shimmer effect === */
+button {
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.4);
+    transform: skewX(-20deg);
+}
+
+button:hover::before {
+    animation: shimmer 1s forwards;
+}
+
+@keyframes shimmer {
+    100% { left: 100%; }
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* === Message Text === */
+#msg {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #00ff99;
+    text-shadow: 0 0 8px #00ff99;
+}
+
+/* === Fade In Effect === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 400px) {
+    center {
+        width: 90%;
+        padding: 25px;
+    }
+}
